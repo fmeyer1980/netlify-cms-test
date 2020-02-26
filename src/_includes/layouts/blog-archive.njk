@@ -1,0 +1,11 @@
+{% extends "layouts/base.njk" %}
+
+{% block content %}
+    <h1>Blog archive</h1>
+    <ul>
+{% for tag in collections.tagList %}
+  {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+  <li><a href="{{ tagUrl | url }}" class="tag">{{ tag }}</a> ({{ collections[tag].length }})</li>
+{% endfor %}
+</ul>
+{% endblock content %}
